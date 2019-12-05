@@ -1,2 +1,4 @@
 # dotfiles
-Configuration files for my linux machine
+Dotfiles repository.  
+
+Made with <3 (but mostly coffee) by Chase Struck
