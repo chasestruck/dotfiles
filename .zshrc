@@ -1,7 +1,13 @@
-##################
-# Chase's .zshrc #
-##################
-
+#          _       
+#         | |
+#  _______| |__  _ __ ___		  
+# |_  / __| '_ \| '__/ __|
+#  / /\__ \ | | | | | (__ 
+# /___|___/_| |_|_|  \___|
+# 
+# Author: Chase Struck
+# Source: https://github.com/chasestruck/dotfiles/blob/master/.zshrc 
+#
 ## DEPENDENCIES:
 ## Oh-My-Zsh <https://github.com/ohmyzsh/ohmyzsh>
 ## Powerlevel9k <https://github.com/Powerlevel9k/powerlevel9k>
