@@ -1,17 +1,17 @@
-#          _       
+#          _
 #         | |
-#  _______| |__  _ __ ___		  
+#  _______| |__  _ __ ___
 # |_  / __| '_ \| '__/ __|
-#  / /\__ \ | | | | | (__ 
+#  / /\__ \ | | | | | (__
 # /___|___/_| |_|_|  \___|
-# 
-# Author: Chase Struck
-# Source: https://github.com/chasestruck/dotfiles/blob/master/.zshrc 
 #
-## DEPENDENCIES:
-## Oh-My-Zsh <https://github.com/ohmyzsh/ohmyzsh>
-## Powerlevel9k <https://github.com/Powerlevel9k/powerlevel9k>
-## awsome-terminal-fonts <https://github.com/gabrielelana/awesome-terminal-fonts>
+# Author: Chase Struck
+# Source: https://github.com/chasestruck/dotfiles/blob/master/.zshrc
+#
+# DEPENDENCIES:
+# Oh-My-Zsh <https://github.com/ohmyzsh/ohmyzsh>
+# Powerlevel9k <https://github.com/Powerlevel9k/powerlevel9k>
+# awsome-terminal-fonts <https://github.com/gabrielelana/awesome-terminal-fonts>
 
 # Fix colors
 export TERM="xterm-256color"
@@ -43,6 +43,13 @@ P9K_VCS_UNTRACKED_ICON=$'\uf00d'
 P9K_VCS_INCOMING_CHANGES_ICON=$'\uf0ab '
 P9K_VCS_OUTGOING_CHANGES_ICON=$'\uf0aa '
 
+# Basic auto complete
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
 # Command auto-correction.
 ENABLE_CORRECTION="true"
 
@@ -62,8 +69,7 @@ alias vi='vim'
 
 save_aliases=$(alias -L) # save current aliases
 
-autoload -U compinit && compinit
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh # load omz
 
 eval $save_aliases; unset save_aliases # use only the aliases set before loading omz
 
