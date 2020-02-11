@@ -1,47 +1,26 @@
-#          _
-#         | |
-#  _______| |__  _ __ ___
-# |_  / __| '_ \| '__/ __|
-#  / /\__ \ | | | | | (__
-# /___|___/_| |_|_|  \___|
-#
-# Author: Chase Struck
-# Source: https://github.com/chasestruck/dotfiles/blob/master/.zshrc
-#
-# DEPENDENCIES:
-# Oh-My-Zsh <https://github.com/ohmyzsh/ohmyzsh>
-# Powerlevel9k <https://github.com/Powerlevel9k/powerlevel9k>
-# awsome-terminal-fonts <https://github.com/gabrielelana/awesome-terminal-fonts>
+autoload -Uz vcs_info
+precmd_functions+=( precmd_vcs_info )
+setopt PROMPT_SUBST
+zstyle ':vcs_info:git:*' formats '%r (%b)'
+zstyle ':vcs_info:*' enable git hg
+precmd () { vcs_info }
+
+function precmd() {
+    # Print a newline after the executed command, unless it's the first prompt in the terminal window.
+    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+        NEW_LINE_BEFORE_PROMPT=1
+    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+        echo ""
+    fi
+}
+
+# hostname:dir username
+PROMPT='%m:%1~ %n%# '
+# VCS Info
+RPROMPT='${vcs_info_msg_0_}'
 
 # Fix colors
 export TERM="xterm-256color"
-
-# Path to oh-my-zsh installation
-export ZSH="/home/gizmoz/.oh-my-zsh"
-
-# Font mode for PL9K
-POWERLEVEL9K_MODE='awesome-fontconfig'
-
-# Load the PL9K theme
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# Prompt settings
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{blue}╭─'
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{blue}╰>%f '
-POWERLEVEL9K_DISABLE_RPROMPT=true
-
-# VCS icons
-P9K_VCS_GIT_ICON=$'\uf1d2 '
-P9K_VCS_GIT_GITHUB_ICON=$'\uf113 '
-P9K_VCS_GIT_GITLAB_ICON=$'\uf296 '
-P9K_VCS_BRANCH_ICON=$''
-P9K_VCS_STAGED_ICON=$'\uf055'
-P9K_VCS_UNSTAGED_ICON=$'\uf421'
-P9K_VCS_UNTRACKED_ICON=$'\uf00d'
-P9K_VCS_INCOMING_CHANGES_ICON=$'\uf0ab '
-P9K_VCS_OUTGOING_CHANGES_ICON=$'\uf0aa '
 
 # Basic auto complete
 autoload -U compinit
@@ -56,21 +35,6 @@ ENABLE_CORRECTION="true"
 # Command execution time stamp shown in the history command output.
 HIST_STAMPS="mm/dd/yyyy"
 
-# VCS config
-P9K_VCS_SHOW_CHANGESET=false
-
-# OMZ plugins to load
-plugins=(git)
-
 # Usefull aliases
-alias rm='rm -i'
-alias ls='lsd --group-dirs first'
+alias ls='ls --group-directories-first'
 alias vi='vim'
-
-save_aliases=$(alias -L) # save current aliases
-
-source $ZSH/oh-my-zsh.sh # load omz
-
-eval $save_aliases; unset save_aliases # use only the aliases set before loading omz
-
-##EOF##
