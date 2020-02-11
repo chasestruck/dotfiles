@@ -42,7 +42,7 @@
 
 [core]
 	ignorecase = false
-	editor = vim
+	editor = emacs/vscode
 	pager = less
 
 [url "ssh://git@github.com/"]
