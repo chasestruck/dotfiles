@@ -23,27 +23,24 @@
 	ui = auto
 
 [color "branch"]
-        current = yellow reverse
-        local = yello
+	current = yellow reverse
+    local = yello
 	remote = green
 
 
 [color "diff"]
-        meta = yellow bold
-        frag = magenta bold
-        old = red bold
+	meta = yellow bold
+    frag = magenta bold
+    old = red bold
 	new = green bold
 
 
 [color "status"]
-        added = yellow
-        changed = green
+    added = yellow
+    changed = green
 	untracked = red
 
 [core]
 	ignorecase = false
-	editor = emacs/vscode
+	editor = VSCodium [vscode]
 	pager = less
-
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
