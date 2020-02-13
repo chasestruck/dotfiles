@@ -38,3 +38,4 @@ HIST_STAMPS="mm/dd/yyyy"
 # Usefull aliases
 alias ls='ls --group-directories-first'
 alias vi='vim'
+alias code='codium'
