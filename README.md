@@ -1,3 +1,3 @@
 ## Dotfiles repository.    
   
-Made with <3 (but mostly coffee) by M. Fox
+Made with <3 (but mostly coffee) by Moonfox
