@@ -5,8 +5,8 @@
 "  \ V /| | | | | | | | | (__ 
 "   \_/ |_|_| |_| |_|_|  \___|	
 "
-" Author: Chase Struck
-" Source: <https://github.com/chasestruck/dotfiles/blob/master/.vimrc>
+" Author: Moonfox
+" Source: <https://github.com/moon-fox/dotfiles/blob/master/deprecated/.vimrc>
 "
 " Settings
 filetype plugin indent on
