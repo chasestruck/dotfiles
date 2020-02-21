@@ -1,3 +1,6 @@
+# Moonfox's .zshrc
+# Tested/Used on UbuntuMATE 19.10
+
 autoload -Uz vcs_info
 precmd_functions+=( precmd_vcs_info )
 setopt PROMPT_SUBST
