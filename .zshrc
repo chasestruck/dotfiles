@@ -1,4 +1,4 @@
-# Moonfox's .zshrc
+# Chase's .zshrc
 # Tested/Used on UbuntuMATE 19.10
 
 autoload -Uz vcs_info
