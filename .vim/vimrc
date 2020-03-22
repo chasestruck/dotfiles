@@ -1,0 +1,135 @@
+" Chase Struck's vimrc
+
+" ====== GENERAL ======
+
+" Set how many lines of history to remember
+set history=500
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Quick save
+nmap :w :w!<cr>
+
+" W sudo saves the file 
+" This helps handle the permission-denied error
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+"====== UI/UX ======
+
+" Show number lines
+set number
+
+" Enable syntax and set the color theme (theme loaded from ~/.vim/colors)
+syntax enable
+colorscheme monokai
+
+" Set 5 lines to the cursor when moving with j/k
+set so=5
+
+" Turn on the Wild Menu
+set wildmenu
+
+" Have wild* ignore compliled/garbage/config files
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*
+
+" Show current position
+set ruler
+
+" Set command bar height
+set cmdheight=1
+
+" Fix backspace becuase VIM does it wrong by default
+set backspace=eol,start,indent
+
+" Ignore case when doing a search
+set ignorecase
+
+" Try to be smart about cases when searching
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Make search feel normal (like a web browser)
+set incsearch
+
+" Don't redraw if running macros (good for performace)
+set lazyredraw
+
+" Show matching brackets when text indecator is over them
+set showmatch
+" ^ How many tenths of a second to blink if they match
+set mat=2
+
+" Remove all those annoying error sounds
+set noerrorbells
+set novisualbell
+set belloff=all
+set t_vb=
+set tm=500
+
+" Add some margin to the left
+" set foldcolumn=1
+
+" ====== Colors/fonts ======
+
+" Enable 256 colors
+set t_Co=256
+
+" Set dark background
+set background=dark
+
+" Set UTF-8 as standard encoding
+set encoding=utf8
+
+" Use UNIX as the standard file type
+set ffs=unix,mac,dos
+
+" ====== Files/backups ======
+
+"Turn backup off, most stuff is in VCS anyway
+set nobackup
+set nowb
+set noswapfile
+
+" ====== Text/tab/indent ======
+
+" Use spaces insted of tabs
+set expandtab
+
+" Be smart when using tabs :)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Auto linebrake on 500 chars
+set lbr
+set tw=500
+
+" Auto Indent/Smart Indent/Wrap lines
+set ai
+set si
+set wrap
+
+" ====== Visual Mode ======
+
+" In Visual Mode, pressing * or # searches for the current selection
+" Idea from Michael Naumann/Amix
+vnoremap <silent> * :<C-u>call VisualSelction('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelction('', '')<CR>/<C-R>=@/<CR><CR>
+
+" ====== Status Line =====
+
+" Always show status line
+set laststatus=2
+
+" Now the real Status Line:
+set statusline=%f   " File name
+set statusline+=\ ""
+set statusline+=\%y  " Filetype of file
+set statusline+=\ ""
+set statusline+=%F " File path
