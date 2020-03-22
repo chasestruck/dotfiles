@@ -21,9 +21,9 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " Show number lines
 set number
 
-" Enable syntax and set the color theme (theme loaded from ~/.vim/colors)
+" Enable syntax and set the color theme (Installed themes in .vim/colors/. Otherwise preinstalled themes)
 syntax enable
-colorscheme monokai
+colorscheme elflord
 
 " Set 5 lines to the cursor when moving with j/k
 set so=5
