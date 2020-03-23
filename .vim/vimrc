@@ -70,8 +70,8 @@ set belloff=all
 set t_vb=
 set tm=500
 
-" Add some margin to the left
-" set foldcolumn=1
+" Enable the mouse 
+set mouse=a
 
 " ====== Colors/fonts ======
 
